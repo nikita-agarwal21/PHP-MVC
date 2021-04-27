@@ -1,4 +1,5 @@
-                  //NumberMVC.php
+//using text box                 
+                                  //NumberMVC.php
 
 <?php
  require 'NumberHelper.php';
