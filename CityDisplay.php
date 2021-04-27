@@ -1,7 +1,5 @@
-              //CityMVC.php
-
-
- 
+//using dropdown box             
+                                            //CityMVC.php
 
 <?php
     require_once 'CityHelper.php';
