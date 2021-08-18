@@ -1,0 +1,27 @@
+body{
+    
+ background-color:blue;
+ 
+ }
+ form{
+     margin:auto;
+     padding:15px;
+ }
+ #image
+ {
+     color:white;
+     border:10px solid black;
+     border-radius:25px;
+        margin: auto;
+        padding:10px;
+        height:200px;
+      width:160px;
+      
+     
+ }
+ div{
+    color:white;
+     text-align:center;
+ }
+
+ 
