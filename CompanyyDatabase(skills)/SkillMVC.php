@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+
+<?php
+    require_once 'SkillHelper.php';    
+    $skillHelper = new SkillHelper();
+$message=false;
+    $results = false;
+ 
+    if ( isset($_POST['results']))
+         $results = $_POST['results'];
+         if ( isset($_POST['message']))
+         $message = $_POST['message'];    
+
+?>
+
+<html>
+  <head>
+    
+  </head>
+
+  <body >
+    <br>
+    <br>
+    <form name="skillForm" method="post" action="SkillController.php" >
+       Skills : 
+       <input type="checkbox" name="skills[]" value="10" <?php echo $skillHelper->isSkillChecked('10'); ?> />java full stack
+       <input type="checkbox" name="skills[]" value="11" <?php echo $skillHelper->isSkillChecked('11'); ?> />mern
+       <input type="checkbox" name="skills[]" value="12" <?php echo $skillHelper->isSkillChecked('12'); ?> />mean
+       <input type="checkbox" name="skills[]" value="13" <?php echo $skillHelper->isSkillChecked('13'); ?> />andriod
+       <input type="checkbox" name="skills[]" value="14" <?php echo $skillHelper->isSkillChecked('14'); ?> />ios
+       <br>
+       <br>
+       <input type="submit" value="Submit" />
+       <br>
+       <br>
+       <?php
+    
+          if($results)
+    
+          {
+              
+
+     
+            $employeeDao=new EmployeeDaoImpl();
+
+             
+?>
+  <br><br>
+        <center><table border='1'>
+         <tr><th>empid</th><th>name</th><th>gender</th><th>qualification</th><th>experience</th><th>reloaction</th><th>join time</th></tr>
+<?php
+foreach($results as $result)
+{
+  
+
+$employee=$employeeDao->search($result->getEmpid());
+
+
+
+foreach($employee as $emp)
+{?>
+
+<tr><td><?php echo $emp->getEmpid() ?></td>
+<td><?php echo $emp->getName()?></td>
+<td><?php echo $emp->getGender()?></td>
+<td><?php echo $emp->getQualification()?></td>
+<td><?php echo $emp->getExperience()?></td>
+<td><?php echo $emp->getRelocation()?></td>
+<td><?php echo $emp->getJoinTime()?></td>
+
+<?php
+}
+?> 
+<?php
+}
+
+}
+else 
+echo $message;
+
+       ?>  
+     </tr></table>                
+    </form>
+  </body>
+
+</html>
+
+
+
+
+ 
